@@ -1,0 +1,47 @@
+[project]
+name = "neural-networks-list-2"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Mateusz Kowalski", email = "kowalski.mateusz.1lo1@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "ucimlrepo~=0.0.7",
+    "numpy~=2.5.3",
+    "pandas~=3.0.6",
+    "scikit-learn~=1.9.1",
+    "matplotlib>=3.11.2",
+]
+
+[project.scripts]
+main = "neural_networks_list_2:main"
+
+[project.optional-dependencies]
+dev = [
+    "ruff~=0.16.8",
+    "pyright~=1.1.414",
+    "pytest~=9.1.1",
+    "prek~=0.5.5",
+]
+
+[tool.pyright]
+extraPaths = ["."]
+
+[tool.ruff]
+line-length = 120
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "NPY"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+
+[build-system]
+requires = ["uv_build>=0.12.22,<0.13.0"]
+build-backend = "uv_build"
