@@ -21,8 +21,6 @@ main = "neural_networks_list_2:main"
 [project.optional-dependencies]
 dev = [
     "ruff~=0.16.8",
-    "pyright~=1.1.414",
-    "pytest~=9.1.1",
     "prek~=0.5.5",
 ]
 

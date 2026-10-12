@@ -1,3 +1,9 @@
+## Report
+
+The report is available in the REPORT.md file
+
+## How to run
+
 ### Sync the dependencies
 
 ```bash
