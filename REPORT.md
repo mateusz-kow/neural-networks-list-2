@@ -56,9 +56,10 @@ Model poprawnie sklasyfikował 53 z 61 obserwacji testowych.
 ### Implementacja modelu regresji liniowej
 
 Zaimplementowałem własny model regresji logistycznej od zera w bibliotece NumPy. Wykorzystałem:
-* **Funkcję aktywacji:** Sigmoida sigma(z) = 1 / (1 + e^(-z)).
-* **Funkcję kosztu:** Entropię krzyżową (Binary Cross-Entropy): L = -y * ln p(x) - (1-y) * ln(1-p(x)).
-* **Optymalizator:** Gradient prosty (Batch Gradient Descent) z regułą aktualizacji wag opisanej w poleceniu
+
+- **Funkcję aktywacji:** Sigmoida sigma(z) = 1 / (1 + e^(-z)).
+- **Funkcję kosztu:** Entropię krzyżową (Binary Cross-Entropy): L = -y * ln p(x) - (1-y) * ln(1-p(x)).
+- **Optymalizator:** Gradient prosty (Batch Gradient Descent) z regułą aktualizacji wag opisanej w poleceniu
 
 Podczas finalizacji rozwiązania pokazałem własną implementację LLM'owi i ten mnie uświadomił, że mozliwa jest optymalizacja, polegająca na wykorzystaniu zachowania biblioteki numpy dotyczącej mnożenia macierzy, wektorów i skalarów. Wobec tego zamiast iterować po każdym pacjencie z osobna w kodzie została utworzona macierz pacjentów, która jest mnożona przez wektor wag zwracając tym samym wektor prawdopodobieństw.
 
@@ -71,27 +72,30 @@ Przeprowadziłem trzy serie eksperymentów badawczych w celu zbadania wpływu hi
 
 #### 1. Wpływ współczynnika uczenia (alpha)
 Badanie przeprowadzono dla liczby epok = 1000 przy inicjalizacji zerami:
-* alpha = 0.50 | Final Loss: 0.3349 | Test F1: 0.847
-* alpha = 0.10 | Final Loss: 0.3368 | Test F1: 0.867
-* alpha = 0.01 | Final Loss: 0.3739 | Test F1: 0.881
-* alpha = 0.001 | Final Loss: 0.5369 | Test F1: 0.857
-* alpha = 0.0001 | Final Loss: 0.6688 | Test F1: 0.857
+
+- alpha = 0.50 | Final Loss: 0.3349 | Test F1: 0.847
+- alpha = 0.10 | Final Loss: 0.3368 | Test F1: 0.867
+- alpha = 0.01 | Final Loss: 0.3739 | Test F1: 0.881
+- alpha = 0.001 | Final Loss: 0.5369 | Test F1: 0.857
+- alpha = 0.0001 | Final Loss: 0.6688 | Test F1: 0.857
 
 ![Learning curve init loss](plots/learning_curve_init_loss.png)
 
 #### 2. Wpływ rozkładu inicjalizacji parametrów
 Dla alpha = 0.1 i 1000 epok:
-* **Zeros:** Final Loss: 0.3368 | Test F1: 0.867
-* **Normal (std=0.01):** Final Loss: 0.3368 | Test F1: 0.867
-* **Uniform (-0.01, 0.01):** Final Loss: 0.3368 | Test F1: 0.867
-* **Large Normal (std=1.0):** Final Loss: 0.3374 | Test F1: 0.862
+
+- **Zeros:** Final Loss: 0.3368 | Test F1: 0.867
+- **Normal (std=0.01):** Final Loss: 0.3368 | Test F1: 0.867
+- **Uniform (-0.01, 0.01):** Final Loss: 0.3368 | Test F1: 0.867
+- **Large Normal (std=1.0):** Final Loss: 0.3374 | Test F1: 0.862
 
 #### 3. Ostateczne wyniki najlepszego modelu
 Najlepszy model osiągnięto przy konfiguracji: alpha = 0.1, inicjalizacja zerami, liczba epok = 2000.
-* **Accuracy:** 0.869
-* **Precision:** 0.812
-* **Recall:** 0.929
-* **F1-score:** 0.867
+
+- **Accuracy:** 0.869
+- **Precision:** 0.812
+- **Recall:** 0.929
+- **F1-score:** 0.867
 
 ### Wnioski
 

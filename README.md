@@ -22,3 +22,14 @@ uv run prek run --all-files
 ```bash
 uv run main
 ```
+
+### Generate the PDF report
+
+```bash
+pandoc REPORT.md \
+  -o SN_L2_Kowalski_Mateusz.pdf \
+  --pdf-engine=xelatex \
+  -V geometry:margin=2.5cm \
+  -V fontsize=11pt \
+  -V lang=pl-PL
+```
