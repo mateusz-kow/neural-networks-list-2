@@ -1,6 +1,6 @@
 # SIECI NEURONOWE – ćwiczenie
 
-Implementacja modelu regresji liniowej na zbiorze Heart Disease
+Implementacja modelu regresji logistycznej na zbiorze Heart Disease
 
 Repozytorium: [https://github.com/mateusz-kow/neural-networks-list-2](https://github.com/mateusz-kow/neural-networks-list-2)
 
@@ -53,7 +53,7 @@ Jako klasyfikator bazowy zastosowałem regresję logistyczną z biblioteki sciki
 
 Model poprawnie sklasyfikował 53 z 61 obserwacji testowych.
 
-### Implementacja modelu regresji liniowej
+### Implementacja modelu regresji logistycznej
 
 Zaimplementowałem własny model regresji logistycznej od zera w bibliotece NumPy. Wykorzystałem:
 
